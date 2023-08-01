@@ -1,0 +1,31 @@
+
+// 使用Copilot LABS
+//用typescript实现一个标准差函数
+
+
+// Takes an array of numbers and returns the standard deviation of the array
+function stdDev(arr: number[]): number {
+    if (arr.length === 0) {
+        throw new Error('Cannot calculate the standard deviation of an empty array');
+    }
+    const mean = calcMean(arr);
+    const variance = calcVariance(arr, mean);
+    return Math.sqrt(variance);
+}
+
+function calcMean(arr: number[]): number {
+    // calculate the mean of the array
+    return arr.reduce((sum, val) => sum + val, 0) / arr.length;
+}
+
+function calcVariance(arr: number[], mean: number): number {
+    // calculate the variance of the array
+    return arr.reduce((sum, val) => sum + (val - mean) ** 2, 0) / arr.length;
+}
+ 
+
+
+
+
+
+
