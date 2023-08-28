@@ -25,8 +25,44 @@ public class Basic {
                 }
     }
 
-    // 冒泡排序
+
+    // 选择排序
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            int minIndex = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[minIndex])
+                    minIndex = j;
+            // swap arr[i] and arr[minIndex]
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+
     
+    // "123456234"  中要搜索到 第一次出现的 "234"的位置，请用正则表达式实现
+    public static int search(String str, String pattern) {
+        int n = str.length(), m = pattern.length();
+        for (int i = 0; i <= n - m; i++) {
+            int j = 0;
+            for (; j < m; j++)
+                if (str.charAt(i + j) != pattern.charAt(j))
+                    break;
+            if (j == m) return i;
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        String str = "123456234";
+        String pattern = "234";
+        System.out.println(search(str, pattern));
+    }
+
+    // main函数
+
 }
 
 
